@@ -1,0 +1,5 @@
+.error-message {
+  margin-bottom: 10px;
+  color: rgba(172, 5, 38, 0.827);
+  text-transform: capitalize;
+}

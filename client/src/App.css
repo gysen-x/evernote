@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box;
+  background-color: var(--white-color);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.app {
+  padding: 10px;
+}
