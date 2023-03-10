@@ -1,41 +1,53 @@
 import React, { useState } from 'react';
 import {
-  Menu, Input, Icon, Dropdown,
+  Menu, Icon, Dropdown,
 } from 'semantic-ui-react';
+
+import Search from '../Search/Search';
 
 export default function LeftMenu() {
   const [activeItem, setActiveItem] = useState();
   const handleItemClick = (e, { name }) => setActiveItem({ activeItem: name });
 
   return (
-    <Menu vertical>
+    <Menu
+      inverted
+      vertical
+      style={{
+        height: '80vh',
+      }}
+    >
       <Menu.Item>
-        <Input placeholder="Search..." />
+        <Search />
       </Menu.Item>
-
+      <Dropdown item text="Notebooks">
+        <Dropdown.Menu>
+          <Dropdown.Item icon="edit" text="Edit Profile" />
+          <Dropdown.Item icon="globe" text="Choose Language" />
+          <Dropdown.Item icon="settings" text="Account Settings" />
+        </Dropdown.Menu>
+      </Dropdown>
       <Menu.Item>
-        Home
         <Menu.Menu>
-          <Menu.Item
-            name="search"
-            active={activeItem === 'search'}
-            onClick={handleItemClick}
-          >
-            Search
-          </Menu.Item>
           <Menu.Item
             name="add"
             active={activeItem === 'add'}
             onClick={handleItemClick}
           >
-            Add
+            <Icon
+              name="book"
+            />
+            New notebook
           </Menu.Item>
           <Menu.Item
-            name="about"
-            active={activeItem === 'about'}
+            name="edit"
+            active={activeItem === 'edit'}
             onClick={handleItemClick}
           >
-            Remove
+            <Icon
+              name="edit"
+            />
+            Edit
           </Menu.Item>
         </Menu.Menu>
       </Menu.Item>
@@ -46,23 +58,16 @@ export default function LeftMenu() {
         onClick={handleItemClick}
       >
         <Icon name="grid layout" />
-        Browse
+        Homepage
       </Menu.Item>
       <Menu.Item
         name="messages"
         active={activeItem === 'messages'}
         onClick={handleItemClick}
       >
-        Messages
+        Labels
       </Menu.Item>
 
-      <Dropdown item text="More">
-        <Dropdown.Menu>
-          <Dropdown.Item icon="edit" text="Edit Profile" />
-          <Dropdown.Item icon="globe" text="Choose Language" />
-          <Dropdown.Item icon="settings" text="Account Settings" />
-        </Dropdown.Menu>
-      </Dropdown>
     </Menu>
   );
 }

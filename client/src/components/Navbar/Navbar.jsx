@@ -31,54 +31,45 @@ export default function Navbar() {
 
   return (
     <Menu inverted>
-      <>
-        <Menu.Item
-          as={Link}
-          to="/"
-          name="homepage"
-          active={activeItem === 'homepage'}
-          onClick={handleItemClick}
-        />
-        { !isAuth ? (
-          <>
-            <Menu.Item
-              style={{ flexGrow: 1 }}
-            />
-            <Menu.Item
-              position="right"
-              as={Link}
-              to="/signin"
-              name="signin"
-              active={activeItem === 'signin'}
-              onClick={handleItemClick}
-            />
-            <Menu.Item
-              position="right"
-              as={Link}
-              to="/signup"
-              name="signup"
-              active={activeItem === 'signup'}
-              onClick={handleItemClick}
-            />
-          </>
-        ) : (
-          <>
-            <Menu.Item
-              style={{ flexGrow: 1 }}
-            />
-            <Menu.Item
-              as={Link}
-              to="/profile"
-              name={username}
-              active={activeItem === 'profile'}
-            />
-            <Menu.Item
-              name="signout"
-              onClick={handleSignOut}
-            />
-          </>
-        )}
-      </>
+      { !isAuth ? (
+        <>
+          <Menu.Item
+            style={{ flexGrow: 1 }}
+          />
+          <Menu.Item
+            position="right"
+            as={Link}
+            to="/signin"
+            name="signin"
+            active={activeItem === 'signin'}
+            onClick={handleItemClick}
+          />
+          <Menu.Item
+            position="right"
+            as={Link}
+            to="/signup"
+            name="signup"
+            active={activeItem === 'signup'}
+            onClick={handleItemClick}
+          />
+        </>
+      ) : (
+        <>
+          <Menu.Item
+            style={{ flexGrow: 1 }}
+          />
+          <Menu.Item
+            as={Link}
+            to="/profile"
+            name={username}
+            active={activeItem === 'profile'}
+          />
+          <Menu.Item
+            name="signout"
+            onClick={handleSignOut}
+          />
+        </>
+      )}
     </Menu>
   );
 }

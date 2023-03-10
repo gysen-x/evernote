@@ -6,6 +6,7 @@ const sessions = require('express-session');
 const FileStore = require('session-file-store')(sessions);
 
 const authRoute = require('./routes/authRoute');
+const notebookRoute = require('./routes/notebookRoute');
 
 const app = express();
 
@@ -39,5 +40,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRoute);
+app.use('/notebook', notebookRoute);
 
 app.listen(PORT, () => { console.log(`server started on http://localhost:${PORT}`); });
